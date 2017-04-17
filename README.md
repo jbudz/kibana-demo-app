@@ -4,7 +4,7 @@ A small demo application that uses heartbeat data to show whether a site is up o
 
 ## Development
 ### start kibana
-1) install https://nodejs.org/en/
+1) install Node.js 6.10.2
 1) git clone https://github.com/elastic/kibana.git
 1) cd kibana && npm install
 1) cd .. && git clone https://github.com/jbudz/kibana-demo-app && cd kibana-demo-app
