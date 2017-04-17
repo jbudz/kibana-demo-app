@@ -1,4 +1,4 @@
-A small demo application that uses heartbeat data to show whether a site is up or down.
+Kibana is a browser based analytics tool that uses Elasticsearch to visualize data.  This is a small Kibana plugin that uses [Heartbeat](https://www.elastic.co/products/beats/heartbeat) data to show whether a site is up or down.
 
 ![example](/example.png)
 
