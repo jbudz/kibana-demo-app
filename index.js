@@ -1,28 +1,20 @@
 import { resolve } from 'path';
-import exampleRoute from './server/routes/example';
+import status from './server/routes/status';
 
 export default function (kibana) {
   return new kibana.Plugin({
     require: ['elasticsearch'],
 
     uiExports: {
-      
+
       app: {
         title: 'My Plugin',
         description: 'An awesome Kibana plugin',
         main: 'plugins/my_plugin/app'
       },
-      
-      
       translations: [
         resolve(__dirname, './translations/es.json')
-      ],
-      
-      
-      hacks: [
-        'plugins/my_plugin/hack'
       ]
-      
     },
 
     config(Joi) {
@@ -31,12 +23,11 @@ export default function (kibana) {
       }).default();
     },
 
-    
+
     init(server, options) {
-      // Add server routes and initalize the plugin here
-      exampleRoute(server);
+      status(server);
     }
-    
+
 
   });
 };
