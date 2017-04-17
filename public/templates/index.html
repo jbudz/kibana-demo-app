@@ -1,13 +1,14 @@
-<div class="container" ng-controller="myPluginHelloWorld">
-  <div class="row">
-    <div class="col-12-sm">
-      <div class="well">
-        <h2>Congratulations</h2>
-        <p class="lead">You've successfully created your first Kibana Plugin!</p>
-      </div>
-      <h1>{{ title }}</h1>
-      <p class="lead">{{ description }}</p>
-      <p>The current time is {{ currentTime }}</p>
-    </div>
-  </div>
+<div class="container" ng-controller="Statuses">
+  <table class="statuses">
+    <thead>
+      <th>Url</th>
+      <th>Status</th>
+      <th>Latency (ms)</th>
+    </thead>
+    <tr ng-repeat="status in statuses">
+      <td>{{ status.url }}</td>
+      <td>{{ status.up === true ? 'Up' : 'Down' }}</td>
+      <td>{{ status.latency_in_millis }}</td>
+    </tr>
+  </table>
 </div>

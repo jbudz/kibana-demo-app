@@ -12,9 +12,9 @@ uiRoutes
 .when('/', {
   template,
   resolve: {
-    currentTime($http) {
-      return $http.get('../api/my_plugin/example').then(function (resp) {
-        return resp.data.time;
+    statuses($http) {
+      return $http.get('../api/sites/status').then(function (resp) {
+        return resp.data;
       });
     }
   }
@@ -22,14 +22,7 @@ uiRoutes
 
 uiModules
 .get('app/my_plugin', [])
-.controller('myPluginHelloWorld', function ($scope, $route, $interval) {
+.controller('Statuses', function ($scope, $route, $interval) {
   $scope.title = 'My Plugin';
-  $scope.description = 'An awesome Kibana plugin';
-
-  const currentTime = moment($route.current.locals.currentTime);
-  $scope.currentTime = currentTime.format('HH:mm:ss');
-  const unsubscribe = $interval(function () {
-    $scope.currentTime = currentTime.add(1, 'second').format('HH:mm:ss');
-  }, 1000);
-  $scope.$watch('$destroy', unsubscribe);
+  $scope.statuses = $route.current.locals.statuses;
 });
